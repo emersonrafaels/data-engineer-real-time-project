@@ -2,46 +2,14 @@ import sys
 import json
 from pathlib import Path
 
-import requests
 from loguru import logger
+from dynaconf import settings  # Importando as configurações do Dynaconf
 
 # Adicionando a pasta pai ao sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from utils.get_logger import initialize_logger
-
-def get_weather_data(latitude, longitude, api_key):
-    """
-    Faz uma requisição à API Tomorrow.io para obter dados meteorológicos em tempo real.
-
-    Args:
-        latitude (float): Latitude da localização.
-        longitude (float): Longitude da localização.
-        api_key (str): Chave de API para autenticação.
-
-    Returns:
-        dict: Dados meteorológicos em formato JSON, ou None em caso de erro.
-    """
-    url = f"https://api.tomorrow.io/v4/weather/realtime?location={latitude},{longitude}&apikey={api_key}"
-    headers = {"accept": "application/json"}
-
-    logger.info("Enviando requisição para a API Tomorrow.io.")
-    try:
-        response = requests.get(url, headers=headers)
-        logger.info(f"Resposta recebida com status code: {response.status_code}")
-
-        if response.status_code == 200:
-            logger.success("Dados meteorológicos obtidos com sucesso.")
-            return response.json()
-        else:
-            logger.error(
-                f"Erro na requisição: {response.status_code}, mensagem: {response.json().get('message', '')}"
-            )
-            return None
-    except requests.RequestException as e:
-        logger.exception(f"Erro ao tentar se conectar à API: {e}")
-        return None
-
+from api.api_functions import get_weather_data
+from utils.get_logger import initialize_logger  # Importando as configurações do Dynaconf
 
 def print_json(data):
     """
@@ -52,15 +20,26 @@ def print_json(data):
     """
     logger.info("Exibindo dados formatados no console.")
     print(json.dumps(data, indent=4))
+    
+def send_data_to_kinesis(data):
+    """
+    Envia dados para o Amazon Kinesis.
+
+    Args:
+        data (dict): Dados a serem enviados.
+    """
+    logger.info("Enviando dados para o Amazon Kinesis.")
+    # Aqui você implementaria a lógica para enviar os dados para o Kinesis
+    pass
 
 
 def main():
     """
     Função principal que define os parâmetros e executa o fluxo do programa.
     """
-    latitude = -29.6846
-    longitude = -51.1419
-    api_key = "Ml1Az34K8d4KxiXmbQ1Wcq4Me8DeK1x6"
+    latitude = settings.get("latitude")  # Obtendo latitude do Dynaconf
+    longitude = settings.get("longitude")  # Obtendo longitude do Dynaconf
+    api_key = settings.get("api_key")  # Obtendo chave da API do Dynaconf
 
     logger.info("Iniciando o programa para obter dados meteorológicos.")
 
@@ -77,5 +56,5 @@ def main():
 
 
 if __name__ == "__main__":
-    initialize_logger()
+    initialize_logger()  # Configurando o logger com Dynaconf
     main()

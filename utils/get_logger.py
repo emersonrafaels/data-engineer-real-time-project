@@ -1,17 +1,14 @@
 from loguru import logger
+from dynaconf import settings  # Importando as configurações do Dynaconf
 
-def initialize_logger(log_file="weather_logs.log", log_level="INFO"):
+def initialize_logger():
     """
-    Inicializa o logger com configurações padrão.
-
-    Args:
-        log_file (str): Caminho para o arquivo de log.
-        log_level (str): Nível de log (ex: "INFO", "DEBUG", "ERROR").
+    Inicializa o logger com configurações obtidas do Dynaconf.
     """
     logger.add(
-        log_file,
-        rotation="1 MB",
-        level=log_level,
+        settings.get("log_file"),  # Caminho do arquivo de log definido no Dynaconf
+        rotation="1 MB",    # Rotação do arquivo de log
+        level=settings.get("log_level"),  # Nível de log definido no Dynaconf
         format="{time} {level} {message}",
     )
     logger.info("Logger inicializado com sucesso.")
