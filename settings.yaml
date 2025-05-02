@@ -1,0 +1,11 @@
+default:
+  latitude: -29.6846
+  longitude: -51.1419
+  log_file: "weather_logs.log"
+  log_level: "INFO"
+
+development:
+  log_level: "DEBUG"
+
+production:
+  log_level: "WARNING"

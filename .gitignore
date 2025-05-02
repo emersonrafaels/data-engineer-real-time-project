@@ -316,4 +316,7 @@ pyrightconfig.json
 .history
 .ionide
 
+# Ignore secrets files
+.secrets
+
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm,jupyternotebooks
