@@ -6,9 +6,9 @@ import requests
 from loguru import logger
 
 # Adicionando a pasta pai ao sys.path
-sys.path.append(str(Path(__file__).resolve().parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from utils.logger_function import initialize_logger
+from utils.get_logger import initialize_logger
 
 def get_weather_data(latitude, longitude, api_key):
     """
