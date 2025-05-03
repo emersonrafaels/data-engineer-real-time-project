@@ -1,0 +1,33 @@
+name: Deploy Lambda to AWS
+
+on:
+  push:
+    branches:
+      - main # Trigger on push to main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Zip Lambda function
+        run: zip -r function.zip lambda_handler.py
+
+      - name: Deploy to Lambda
+        uses: aws-actions/aws-cli-action@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+          inlineScript: |
+            aws lambda update-function-code \
+              --function-name enviaParaBroker \
+              --zip-file fileb://function.zip
