@@ -1,6 +1,7 @@
 import requests
 from loguru import logger
 
+
 def get_weather_data(latitude, longitude, api_key):
     """
     Faz uma requisição à API Tomorrow.io para obter dados meteorológicos em tempo real.

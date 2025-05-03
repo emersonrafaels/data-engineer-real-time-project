@@ -319,4 +319,7 @@ pyrightconfig.json
 # Ignore secrets files
 *.secrets*
 
+# Ignore logs
+weather_logs.log
+
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm,jupyternotebooks

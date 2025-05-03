@@ -1,5 +1,6 @@
-from loguru import logger
 from dynaconf import settings  # Importando as configurações do Dynaconf
+from loguru import logger
+
 
 def initialize_logger():
     """
@@ -7,7 +8,7 @@ def initialize_logger():
     """
     logger.add(
         settings.get("log_file"),  # Caminho do arquivo de log definido no Dynaconf
-        rotation="1 MB",    # Rotação do arquivo de log
+        rotation="1 MB",  # Rotação do arquivo de log
         level=settings.get("log_level"),  # Nível de log definido no Dynaconf
         format="{time} {level} {message}",
     )
