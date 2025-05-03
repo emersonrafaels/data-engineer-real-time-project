@@ -1,5 +1,5 @@
 ---
-  name: Deploy Lambda (ViaCEP)
+  name: Deploy Lambda
   on:
     push:
       branches:
