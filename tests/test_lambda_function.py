@@ -34,7 +34,6 @@ def test_lambda_handler_success(
     
     # Mockando o cliente do Kinesis
     mock_kinesis_client = MagicMock()
-    mock_boto3_client.return_value = mock_kinesis_client
 
     # Chamando o lambda_handler
     response = lambda_handler(mock_event, mock_context)
