@@ -3,9 +3,9 @@ import json
 from dynaconf import settings
 from loguru import logger
 
-from api.api_functions import get_weather_data
-from kinesis.put_records import send_to_kinesis
-from utils.get_logger import initialize_logger
+from src.api.api_functions import get_weather_data
+from src.kinesis.put_records import send_to_kinesis
+from src.utils.get_logger import initialize_logger
 
 # Inicializa o logger no momento da inicialização do Lambda
 initialize_logger()
