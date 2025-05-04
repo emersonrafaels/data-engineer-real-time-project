@@ -16,7 +16,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.12"
+          python-version: "3.13"
 
       # Criar ambiente virtual e instalar dependências
       - name: Configurar ambiente virtual e instalar dependências
@@ -65,7 +65,7 @@ jobs:
       - name: Fazer deploy na AWS Lambda
         run: |
           aws lambda update-function-code \
-          --function-name api_viacep \
+          --function-name real-time-data-engineer-lambda \
           --s3-bucket ${{ secrets.AWS_LAMBDA_S3_BUCKET }} \
           --s3-key ${{ secrets.AWS_LAMBDA_S3_KEY }} \
           --publish
