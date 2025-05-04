@@ -8,7 +8,7 @@ from unittest.mock import patch, MagicMock
 # Adiciona o diretório raiz ao sys.path
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from config.config import settings
+from config_project.config import settings
 from lambda_function import lambda_handler
 
 def test_lambda():
