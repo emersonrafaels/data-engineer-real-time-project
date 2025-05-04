@@ -1,13 +1,18 @@
+import sys
 import json
+from pathlib import Path
 
 import boto3
 from loguru import logger
 
-from settings.config import settings
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
+
+from config.config import settings
 
 # Cliente do Kinesis
 kinesis_client = boto3.client("kinesis", 
-                              region_name=settings.get("kinesis_region"))
+                              region_name=settings.get("kinesis_region", 
+                                                       "us-east-1"))
 
 
 def send_to_kinesis(data):

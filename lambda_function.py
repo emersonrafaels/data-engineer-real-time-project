@@ -1,8 +1,8 @@
 import json
 
-from settings.config import settings
 from loguru import logger
 
+from config.config import settings
 from src.api.api_functions import get_weather_data
 from src.kinesis.put_records import send_to_kinesis
 from src.utils.get_logger import initialize_logger

@@ -4,7 +4,7 @@ default:
   log_file: "weather_logs.log"
   log_level: "INFO"
   kinesis_stream_name: "broker"  # Nome do stream do Kinesis
-  kinesis_region: "us-east-1"           # Região do Kinesis (ex: us-east-1)
+  kinesis_region: "us-east-1"    # Região do Kinesis (ex: us-east-1)
 
 development:
   log_level: "DEBUG"

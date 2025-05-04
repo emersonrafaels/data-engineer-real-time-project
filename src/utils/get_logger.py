@@ -1,6 +1,6 @@
 from loguru import logger
 
-from settings.config import settings
+from config.config import settings
 
 def initialize_logger():
     """
