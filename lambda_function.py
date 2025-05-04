@@ -1,6 +1,10 @@
+import sys
 import json
+from pathlib import Path
 
 from loguru import logger
+
+sys.path.append(str(Path(__file__).resolve().parent))
 
 from config.config import settings
 from src.api.api_functions import get_weather_data
