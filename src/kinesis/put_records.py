@@ -7,7 +7,7 @@ from loguru import logger
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from config.config import settings
+from config_project.config import settings
 
 # Cliente do Kinesis
 kinesis_client = boto3.client("kinesis", 

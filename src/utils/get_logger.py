@@ -5,7 +5,7 @@ from loguru import logger
 
 sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
-from config.config import settings
+from config_project.config import settings
 
 def initialize_logger():
     """
