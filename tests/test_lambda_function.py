@@ -10,3 +10,8 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from config.config import settings
 from lambda_function import lambda_handler
+
+def test_lambda():
+    
+    assert True, "Teste de exemplo para garantir que o pytest está funcionando."
+    # Aqui você pode adicionar mais testes específicos para a função lambda_handler

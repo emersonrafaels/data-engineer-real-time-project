@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 from unittest.mock import patch, MagicMock
 
-sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
+sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from config.config import settings
 from src.api.api_functions import get_weather_data
