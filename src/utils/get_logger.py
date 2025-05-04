@@ -1,4 +1,9 @@
+import sys
+from pathlib import Path
+
 from loguru import logger
+
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 from config.config import settings
 
@@ -20,3 +25,4 @@ def initialize_logger():
         logger.info("Logger inicializado com sucesso.")
     except Exception as e:
         logger.error(f"Erro ao inicializar o logger: {e}")
+
