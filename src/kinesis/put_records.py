@@ -5,7 +5,8 @@ from dynaconf import settings
 from loguru import logger
 
 # Cliente do Kinesis
-kinesis_client = boto3.client("kinesis")
+kinesis_client = boto3.client("kinesis", 
+                              region_name=settings.get("kinesis_region"))
 
 
 def send_to_kinesis(data):
