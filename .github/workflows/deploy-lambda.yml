@@ -52,6 +52,8 @@ jobs:
           mkdir package
           pip install -r requirements.txt -t package/
           cp lambda_function.py package/
+          cp -r config package/
+          cp -r src package/
           cd package
           zip -r9 ../lambda_function.zip .
 
