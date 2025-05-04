@@ -1,7 +1,13 @@
+import sys
+from pathlib import Path
+
 import pytest
 from unittest.mock import patch, MagicMock
-from src.api.api_functions import get_weather_data
 
+sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
+
+from config.config import settings
+from src.api.api_functions import get_weather_data
 
 @pytest.fixture
 def mock_response():
