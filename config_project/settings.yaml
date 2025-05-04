@@ -8,10 +8,10 @@ default:
 
 development:
   log_level: "DEBUG"
-  kinesis_stream_name: "your_dev_stream_name"
-  kinesis_region: "your_dev_region"
+  kinesis_stream_name: "broker"
+  kinesis_region: "us-east-1" 
 
 production:
-  log_level: "WARNING"
-  kinesis_stream_name: "your_prod_stream_name"
-  kinesis_region: "your_prod_region"
+  log_level: "INFO"
+  kinesis_stream_name: "broker"
+  kinesis_region: "us-east-1" 

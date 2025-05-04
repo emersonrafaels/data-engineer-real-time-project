@@ -9,6 +9,8 @@ sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 
 from config_project.config import settings
 
+logger.info(settings.get("kinesis_region"))
+
 # Cliente do Kinesis
 kinesis_client = boto3.client("kinesis", 
                               region_name=settings.get("kinesis_region", 

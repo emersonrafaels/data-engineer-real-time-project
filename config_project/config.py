@@ -14,6 +14,3 @@ settings = Dynaconf(
 # settings = Dynaconf(settings_files=["settings.yaml", ".secrets.yaml"],
 #                     environments=True, 
 #                     load_dotenv=True)
-
-print(settings.get("latitude"))
-print(Path(dir_root, "settings.yaml"))
