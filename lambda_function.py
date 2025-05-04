@@ -34,6 +34,9 @@ def lambda_handler(event, context):
         latitude = settings.latitude
         longitude = settings.longitude
         api_key = settings.api_key
+        
+        logger.info(
+            f"Latitude: {latitude}, Longitude: {longitude}, API Key: {api_key}")
 
         # Obtém os dados meteorológicos
         weather_data = get_weather_data(latitude, longitude, api_key)
