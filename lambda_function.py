@@ -1,6 +1,6 @@
 import json
 
-from dynaconf import settings
+from settings.config import settings
 from loguru import logger
 
 from src.api.api_functions import get_weather_data

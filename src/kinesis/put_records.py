@@ -1,8 +1,9 @@
 import json
 
 import boto3
-from dynaconf import settings
 from loguru import logger
+
+from settings.config import settings
 
 # Cliente do Kinesis
 kinesis_client = boto3.client("kinesis", 

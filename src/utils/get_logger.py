@@ -1,6 +1,6 @@
-from dynaconf import settings  # Importando as configurações do Dynaconf
 from loguru import logger
 
+from settings.config import settings
 
 def initialize_logger():
     """
